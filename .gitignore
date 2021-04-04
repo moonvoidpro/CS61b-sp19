@@ -13,6 +13,7 @@
 *.war
 *.ear
 *.zip
+*.idea
 *.tar.gz
 *.rar
 **/out/
