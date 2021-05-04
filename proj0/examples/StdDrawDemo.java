@@ -47,7 +47,7 @@ public class StdDrawDemo {
 		  * offscreen canvas to the onscreen canvas, where it is displayed
 		  * in the standard drawing window. */
 		StdDraw.enableDoubleBuffering();
-
+		StdDraw.setScale(-100, 100);
 		int waitTimeMilliseconds = 100;
 
 		/* Stamp 100 additional pictures in random locations,
@@ -85,7 +85,7 @@ public class StdDrawDemo {
 		  * offscreen canvas to the onscreen canvas, where it is displayed
 		  * in the standard drawing window. */
 		StdDraw.enableDoubleBuffering();
-
+		StdDraw.setScale(-100, 100);
 		double size = 100;
 		while (size < 500) {
 			StdDraw.clear();
@@ -107,8 +107,8 @@ public class StdDrawDemo {
 	public static void main(String[] args) {
 		/** Try commenting out some of these calls and
 		* notice the differences. */
-		drawThree();
-		//drawRandom();
-		//drawZoom();
+		// drawThree();
+		drawRandom();
+		// drawZoom();
 	}
 }
