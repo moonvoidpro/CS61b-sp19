@@ -80,7 +80,7 @@ public class IntList {
      * *  elements of B.  May modify items of A. Don't use 'new'.
      */
 
-    public static IntList dcatenate(IntList A, IntList B ) {
+    public static IntList dcatenate(IntList A, IntList B) {
         if (A == null) return B;
         IntList ptr = A;
         while (A.rest != null)  A = A.rest;
@@ -115,8 +115,7 @@ public class IntList {
         //TODO
         if (A == null) {
             return null;
-        }
-        else {
+        } else {
             IntList ptr = null, next;
             while (A != null) {
                 next = A.rest;
