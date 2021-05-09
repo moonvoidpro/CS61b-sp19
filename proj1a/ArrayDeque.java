@@ -8,7 +8,17 @@ public class ArrayDeque<T> {
     public ArrayDeque(){
         deque = (T[]) new Object[8];
         size = 0;
+        nextFirst = 0;
+        nextLast = 1;
 
+    }
+
+    private boolean isFull(){
+        return size == deque.length;
+    }
+
+    private boolean isSparse(){
+        return size > 16 && size < (deque.length/4);
     }
 
     public ArrayDeque(ArrayDeque other){
