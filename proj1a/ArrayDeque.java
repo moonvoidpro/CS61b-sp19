@@ -3,15 +3,20 @@ public class ArrayDeque<T> {
     private T[] deque;
     private int nextFirst;
     private int nextLast;
+    private int lengthA;
 
     //The starting size of your array should be 8.
     public ArrayDeque(){
         deque = (T[]) new Object[8];
         size = 0;
-
+        nextFirst = 0;
+        nextLast = 1;
+        lengthA = 8;
     }
 
     public ArrayDeque(ArrayDeque other){
+        deque = (T[]) new Object[other.lengthA];
+
 
     }
 
@@ -27,11 +32,11 @@ public class ArrayDeque<T> {
         return size == 0;
     }
 
-    public void addFirst() {
+    public void addFirst(T item) {
 
     }
 
-    public void addLast() {
+    public void addLast(T item) {
 
     }
 
