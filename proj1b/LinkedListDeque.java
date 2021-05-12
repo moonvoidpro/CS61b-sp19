@@ -16,29 +16,39 @@ public class LinkedListDeque<T> implements Deque<T> {
     private int size;
     //Creates an empty linked list deque.
     public LinkedListDeque(){
-        node = new dequeNode(null, null, null);
+        dequeNode node = new dequeNode(null, null, null);
         node.frontNode = node;
         node.nextNode = node;
         size = 0;
     }
+
+    @Override
     public void addFirst(T item){
         dequeNode newNode = new dequeNode(item, node, node.nextNode);
         node.nextNode.frontNode = newNode;
         node.nextNode = newNode;
         size += 1;
     }
+
+
+    @Override
     public void addLast(T item){
         node.frontNode = new dequeNode(item, node.frontNode, node);
         node.frontNode.frontNode.nextNode = node.frontNode;
         size += 1;
     }
-    public boolean isEmpty(){
-        return size == 0;
-    }
+//
+//    @Override
+//    public boolean isEmpty(){
+//        return size() == 0;
+//    }
 
+    @Override
     public int size(){
         return size;
     }
+
+    @Override
     public void printDeque(){
         dequeNode print = node.nextNode;
         for (int i = 0; i < size; i++) {
@@ -47,6 +57,8 @@ public class LinkedListDeque<T> implements Deque<T> {
         }
         System.out.println();
     }
+
+    @Override
     public T removeFirst(){
         T removeF = node.nextNode.itemT;
         node.nextNode = node.nextNode.nextNode;
@@ -54,6 +66,8 @@ public class LinkedListDeque<T> implements Deque<T> {
         size -= 1;
         return removeF;
     }
+
+    @Override
     public T removeLast(){
         T removeL = node.frontNode.itemT;
         node.frontNode = node.frontNode.frontNode;
@@ -61,6 +75,8 @@ public class LinkedListDeque<T> implements Deque<T> {
         size -= 1;
         return removeL;
     }
+
+    @Override
     public T get(int index){
         if (index > size) return null;
         dequeNode get = node;
@@ -72,23 +88,24 @@ public class LinkedListDeque<T> implements Deque<T> {
     }
     //Creates a deep copy of `other`
     public LinkedListDeque(LinkedListDeque other){
-        node = new dequeNode(null, null, null);
+        dequeNode node = new dequeNode(null, null, null);
         node.nextNode = node;
         node.frontNode = node;
         size = 0;
 
         for (int i = 0; i < other.size(); i++) {
             addFirst((T) other.get(i));
+            size += 1;
         }
 
     }
-    private T getRecursive(dequeNode D, int index){
-        if (index == 0) return D.itemT;
-        return getRecursive(D.nextNode, index-1);
-    }
-
-    public T getRecursive(int index){
-        if (index > size) return null;
-        return getRecursive(node, index);
-    }
+//    private T getRecursive(dequeNode D, int index){
+//        if (index == 0) return D.itemT;
+//        return getRecursive(D.nextNode, index-1);
+//    }
+//
+//    public T getRecursive(int index){
+//        if (index > size) return null;
+//        return getRecursive(node, index);
+//    }
 }
